@@ -1,0 +1,42 @@
+/*
+RED: #C54B51 ORANGE: #C2804A YELLOW: #E7E05E GREEN: #8CC24B BLUE: #2389C1;
+*/
+/*svg {
+	position: relative;
+}*/
+
+g {
+	fill: #eaeaea;
+	stroke:#333333;
+	stroke-width: .07;
+	/*transition: fill .5s ease-out;*/
+}
+
+.inactive {
+	opacity: .5;
+	stroke: #fafafa;
+	transition: stroke .5s ease-out;
+}
+
+.active {
+	opacity: .75;
+}
+
+
+
+.state:hover {
+	opacity: .75;
+}
+
+h1 {
+	margin-left: 50px;
+	font-family: 'Amatic SC'
+}
+
+.background {
+	fill: #fff;
+}
+
+.venue:hover {
+	opacity: .75;
+}
