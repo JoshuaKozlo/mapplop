@@ -45,19 +45,8 @@ d3.json("/static/json/USA.json", function(us) {
   //     .attr("d", path);
 });
 
-
-d3.json('/getVenues/', function(venues){
-  console.log(venues);
-  g.selectAll('circle')
-      .data(venues.features)
-    .enter().append('circle')
-      .attr('r', 3)
-      .attr('class', 'venue')
-      .style('fill', '#C54B51')
-      .attr('transform', function(d) {
-        console.log(d.properties.lat);
-        return "translate(" + projection([d.properties.lon, d.properties.lat]) + ')';
-      })
+d3.json('/getCities/', function(city) {
+  console.log(city);
 });
 
 

@@ -8,13 +8,14 @@
     	<title>Mapplop | Venues!</title>
 		<!-- Styles -->
     	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    	<link rel="stylesheet" href="{% static 'plugin/owl.carousel.2.0.0-beta.2.4/assets/owl.carousel.css' %}">
     	<link rel="stylesheet" href="{% static 'css/main.css' %}">
     	<!-- Fonts -->
     	<link href='http://fonts.googleapis.com/css?family=Josefin+Sans|Questrial|Amatic+SC' rel='stylesheet' type='text/css'>
 	</head>
 	<body>
 		<h1 id='level1'>United States Of America</h1>
+		<button id='on'>On</button>
+		<button id ='off'>Off</button>
 		<div class="container-fluid">
 			<div class="row">
 				<div class= 'map center-block col-md-12'></div>
@@ -27,10 +28,16 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 		<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 		<script src="http://d3js.org/topojson.v1.min.js" charset="utf-8"></script>
-		<script src="{% static 'plugin/owl.carousel.2.0.0-beta.2.4/owl.carousel.min.js' %}"></script>
 		<!-- Page Scripts-->
 		<script src="{% static 'js/map.js' %}"></script>
-
+		<script>
+			$('#off').on('click', function(){
+				$('svg').css('display', 'none');
+			});
+			$('#on').on('click', function(){
+				$('svg').css('display', 'inline');
+			});
+		</script>
 	</body>
 </html>
 

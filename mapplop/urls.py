@@ -19,5 +19,6 @@ from venues import views
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^map/', 'venues.views.map')
+    url(r'^map/', 'venues.views.map'),
+    url(r'^getCities/', 'venues.views.getCities'),
 ]
