@@ -13,13 +13,14 @@
     	<link href='http://fonts.googleapis.com/css?family=Josefin+Sans|Questrial|Amatic+SC' rel='stylesheet' type='text/css'>
 	</head>
 	<body>
-		<h1 id='level1'>United States Of America</h1>
-		<button id='on'>On</button>
-		<button id ='off'>Off</button>
+		<nav class="navbar navbar-fixed-top">
+			<h1 id='level1'>United States Of America</h1>
+		</nav>
 		<div class="container-fluid">
 			<div class="row">
 				<div class= 'map center-block col-md-12'></div>
 			</div>
+			<div class="row list"></div>
 		</div>
 		<!-- <div id="viz-wrapper"></div> -->
     
@@ -30,14 +31,6 @@
 		<script src="http://d3js.org/topojson.v1.min.js" charset="utf-8"></script>
 		<!-- Page Scripts-->
 		<script src="{% static 'js/map.js' %}"></script>
-		<script>
-			$('#off').on('click', function(){
-				$('svg').css('display', 'none');
-			});
-			$('#on').on('click', function(){
-				$('svg').css('display', 'inline');
-			});
-		</script>
 	</body>
 </html>
 

@@ -21,4 +21,5 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^map/', 'venues.views.map'),
     url(r'^getCities/', 'venues.views.getCities'),
+    url(r'^getVenues/', 'venues.views.getVenues'),
 ]

@@ -1,6 +1,8 @@
 /*
 RED: #C54B51 ORANGE: #C2804A YELLOW: #E7E05E GREEN: #8CC24B BLUE: #2389C1;
+FONTS: Josefin+Sans|Questrial|Amatic+SC
 */
+
 /*svg {
 	position: relative;
 }*/
@@ -13,7 +15,6 @@ g {
 }
 
 .inactive {
-	opacity: .5;
 	stroke: #fafafa;
 	transition: stroke .5s ease-out;
 }
@@ -29,15 +30,29 @@ g {
 }
 
 h1 {
-	margin-left: 50px;
-	font-family: 'Amatic SC'
+	font-family: 'Amatic SC';
+	text-align: center;
 }
 
 .background {
 	fill: #fff;
 }
 
-.venue:hover {
-	opacity: .75;
+.city:hover {
+	fill: #8CC24B;
+}
+
+h2 {
+	text-align: center;
+	font-family: 'Josefin Sans';
+	font-size: 20px;
+}
+
+nav {
+	background-color: white;
+}
+
+.map {
+	margin-top: 70px;
 }
 
