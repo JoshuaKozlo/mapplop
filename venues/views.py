@@ -19,14 +19,32 @@ def getCities(request):
 
 
 def getVenues(request):
-	query = request.GET
-	level = query.get('level', 'ff')
-	# fetchVenue = Venue.objects.filter(city__state='{}'.format(level)).order_by('city__state')
-	fetchVenue = Venue.objects.all().order_by('city__state', 'city__name')
-	serialized = VenueSerializer(fetchVenue, many=True)
+	level = request.GET.get('scale')
+	if level == 'US':
+		venues = Venue.objects.all().order_by('city__state', 'city__name')
+	elif level == 'state':
+		state = request.GET.get('state')
+		venues = Venue.objects.filter(city__state=state).order_by('city__state', 'city__name')
+	else:
+		state = request.GET.get('state')
+		city = request.GET.get('city')
+		venues = Venue.objects.filter(city__state=state, city__name=city).order_by('city__state', 'city__name')
+
+	serialized = VenueSerializer(venues, many=True)
 	json = JSONRenderer().render(serialized.data)
 	response = HttpResponse(json)
 	return response
+
+
+	# query = request.GET
+	# level = query.get('level', 'ff')
+	# # fetchVenue = Venue.objects.filter(city__state='{}'.format(level)).order_by('city__state')
+	# fetchVenue = Venue.objects.all().order_by('city__state', 'city__name')
+	# serialized = VenueSerializer(fetchVenue, many=True)
+	# json = JSONRenderer().render(serialized.data)
+	# response = HttpResponse(json)
+	# return response
+
 
 
 

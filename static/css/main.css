@@ -19,8 +19,12 @@ g {
 	transition: stroke .5s ease-out;
 }
 
-.active {
+.activeState {
 	opacity: .75;
+}
+
+.activeCity {
+	fill: #8CC24B;
 }
 
 
@@ -49,10 +53,28 @@ h2 {
 }
 
 nav {
-	background-color: white;
+	background-color: #fff;
+	box-shadow: 0px 2px 10px #333333;
 }
 
 .map {
 	margin-top: 70px;
 }
+
+a, 
+a:visited,  
+a:focus, 
+a:active {
+	text-decoration: none;
+	color: black;
+}
+
+.city-state {
+	background-color: #fff;
+	box-shadow: 0px 2px 10px #333333;
+}
+
+
+
+
 

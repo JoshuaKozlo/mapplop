@@ -5,7 +5,8 @@ var margin = {top: 10, left: 10, bottom: 10, right: 10},
     width = width - margin.left - margin.right,
     mapRatio = .46,
     height = width * mapRatio,
-    active = d3.select(null);
+    activeState = d3.select(null);
+    activeCity = d3.select(null);
 
 var projection = d3.geo.albersUsa()
     .scale(width)
@@ -39,7 +40,7 @@ d3.json("/static/json/USA.json", function(us) {
       .attr("class", function(d) {
         return 'state ' + d.id
       })
-      .on("click", clicked);
+      .on("click", stateClicked);
 
   // g.append("path")
   //     .datum(topojson.mesh(us, us.objects.ne_10m_USA_states, function(a, b) { return a !== b; }))
@@ -56,9 +57,7 @@ d3.json('/getCities/', function(city) {
       return 'city ' + d.properties.name;
     })
     .attr('fill', '#C54B51')
-    .on('mouseover', function(d) {
-      headlineState.innerHTML = d.properties.name + ', ' + d.properties.state;
-    })
+    .on('click', cityClicked)
 });
 
 
@@ -75,10 +74,13 @@ d3.json('/getCities/', function(city) {
 
 d3.select(window).on('resize', resize);
 
-function clicked(d) {
-  if (active.node() === this) return reset();
-  active.classed("active", false);
-  active = d3.select(this).classed("active", true);
+
+function stateClicked(d) {
+  if (activeState.node() === this) return reset();
+  activeCity.classed('activeCity', false)
+  activeCity = d3.select(null);
+  activeState.classed("activeState", false);
+  activeState = d3.select(this).classed("activeState", true);
   // console.log(active.attr('class').split(' ')[1]);
   var bounds = path.bounds(d),
       dx = bounds[1][0] - bounds[0][0],
@@ -93,20 +95,35 @@ function clicked(d) {
       .style("stroke-width", .1 / scale + "px")
       .attr("transform", "translate(" + translate + ")scale(" + scale + ")");
 
-  headlineState.innerHTML = d.properties.name;
-  
+  headlineState.innerHTML = '<a href="#top">' + d.properties.name + '</a>';
+  getVenues('state', d);
+}
+
+
+function cityClicked(d) {
+  if (activeCity.node() === this) {
+      return;
+  } else {
+      activeCity.classed('activeCity', false)
+      activeCity = d3.select(this).classed('activeCity', true);
+      headlineState.innerHTML = '<a href="#top">' + d.properties.name + ', ' + d.properties.state + '</a>';
+  }
+  getVenues('city', d);
 }
 
 function reset() {
-  active.classed("active", false);
-  active = d3.select(null);
+  activeCity.classed('activeCity', false)
+  activeCity = d3.select(null);
+  activeState.classed("activeState", false);
+  activeState = d3.select(null);
 
   g.transition()
       .duration(1500)
       .style("stroke-width", ".07px")
       .attr("transform", "");
 
-  headlineState.innerHTML = 'United States Of America';
+  headlineState.innerHTML = '<a href="#top">United States Of America</a>';
+  getVenues('US');
 }
 
 function resize() {
@@ -131,32 +148,49 @@ function resize() {
 
 }
 
-function getVenues(d) {
-  $.getJSON('/getVenues/', { level : d })
-    .done(function(json) {
-      console.log(json);
-      layoutUS(json)
-    });
-}
-
-
-
 
 function layoutUS(d) {
   var state,
-      city 
+      city
+
+  $('.data').empty();
   
   for (i = 0; i < d.length; i++) {
-    if (d[i].city_state[1] === state) {
-      $('.list').append( "<h2 class='venue col-md-4'>" + d[i].name + "</h2>");
+    if (d[i].city_state[1] === state && d[i].city_state[0] === city) {
+      $('.' + row).append( "<h2 class='venue col-md-4 col-xs-12 col-centered'>" + d[i].name + "</h2>");
     } 
-    else{
+    else {
+      city = d[i].city_state[0];
       state = d[i].city_state[1];
-      $('.list').append( "<h1 class='venue col-md-12'>" + d[i].city_state[0] + ', ' + d[i].city_state[1] + "</h1>");
-      $('.list').append( "<h2 class='venue col-md-4'>" + d[i].name + "</h2>");
+      row = 'row-' + i
+
+      $('.data').append( "<h1 class='city-state col-xs-12'>~ " + d[i].city_state[0] + ', ' + d[i].city_state[1] + " ~</h1>");
+      $('.data').append( "<div class='row " + row + "'></div>" )
+      $('.' + row).append( "<h2 class='venue col-md-4 col-xs-12 col-centered'>" + d[i].name + "</h2>");
 
     };
   }
 }
 
-getVenues('NY');
+
+
+function getVenues(level, d) {
+  var data
+  if ( level === 'US' ) {
+    data = {'scale' : 'US'}
+  } else if ( level === 'state' ) {
+    data = {'scale' : 'state', 'state' : d.id}
+  } else {
+    data = {'scale' : 'city', 'state' : d.properties.state, 'city' : d.properties.name}
+  }
+  $.getJSON('/getVenues/', data)
+    .done(function( json ) {
+      layoutUS(json);
+    });
+}
+
+
+getVenues('US');
+
+
+
