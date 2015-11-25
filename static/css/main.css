@@ -7,11 +7,19 @@ FONTS: Josefin+Sans|Questrial|Amatic+SC
 	position: relative;
 }*/
 
+html {
+	font-size: 10px;
+}
 g {
 	fill: #eaeaea;
-	stroke:#333333;
-	stroke-width: .07;
+	stroke:#141414;
+	stroke-width: .1;
 	/*transition: fill .5s ease-out;*/
+}
+
+g .place-label {
+	font-family: 'Josefin Sans';
+	fill: black;
 }
 
 .inactive {
@@ -36,6 +44,11 @@ g {
 h1 {
 	font-family: 'Amatic SC';
 	text-align: center;
+}
+
+.venue h1 {
+	font-family: 'Josefin Sans';
+	font-size: 2.5em;
 }
 
 .background {
@@ -64,15 +77,41 @@ nav {
 a, 
 a:visited,  
 a:focus, 
-a:active {
+a:active,
+a:hover {
 	text-decoration: none;
 	color: black;
 }
 
+#headline:hover {
+	text-decoration: underline;
+}
+
+
 .city-state {
-	background-color: #fff;
+	background-color: #fafafa;
 	box-shadow: 0px 2px 10px #333333;
 }
+
+.street {
+	color: #C54B51;
+}
+
+
+
+img {
+	border-radius: 50%;
+	box-shadow: 0px 2px 30px #333;
+	width: 25%;
+	margin: auto;
+}
+
+img:active {
+	box-shadow: 0px 2px 10px #333;
+}
+
+
+
 
 
 

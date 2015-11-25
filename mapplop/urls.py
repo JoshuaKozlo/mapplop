@@ -13,7 +13,8 @@ Including another URLconf
     1. Add an import:  from blog import urls as blog_urls
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
-from django.conf.urls import include, url
+from django.conf import settings
+from django.conf.urls import include, url, static
 from django.contrib import admin
 from venues import views
 
@@ -22,4 +23,4 @@ urlpatterns = [
     url(r'^map/', 'venues.views.map'),
     url(r'^getCities/', 'venues.views.getCities'),
     url(r'^getVenues/', 'venues.views.getVenues'),
-]
+] + static.static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -11,4 +11,4 @@ class CityAdmin(admin.ModelAdmin):
 
 @admin.register(Venue)
 class VenueAdmin(admin.ModelAdmin):
-	list_display = ('name', 'street', 'city')
+	list_display = ('name', 'street', 'city', 'website')

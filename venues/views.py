@@ -21,14 +21,14 @@ def getCities(request):
 def getVenues(request):
 	level = request.GET.get('scale')
 	if level == 'US':
-		venues = Venue.objects.all().order_by('city__state', 'city__name')
+		venues = Venue.objects.all().order_by('city__state', 'city__name', 'name')
 	elif level == 'state':
 		state = request.GET.get('state')
-		venues = Venue.objects.filter(city__state=state).order_by('city__state', 'city__name')
+		venues = Venue.objects.filter(city__state=state).order_by('city__state', 'city__name', 'name')
 	else:
 		state = request.GET.get('state')
 		city = request.GET.get('city')
-		venues = Venue.objects.filter(city__state=state, city__name=city).order_by('city__state', 'city__name')
+		venues = Venue.objects.filter(city__state=state, city__name=city).order_by('city__state', 'city__name', 'name')
 
 	serialized = VenueSerializer(venues, many=True)
 	json = JSONRenderer().render(serialized.data)

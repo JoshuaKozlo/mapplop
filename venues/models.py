@@ -33,6 +33,8 @@ class Venue(models.Model):
 	name = models.CharField(max_length=50, null=True)
 	street = models.CharField(max_length=50, null=True)
 	city = models.ForeignKey(City, null=True)
+	website = models.CharField(max_length=250, null=True)
+	image = models.ImageField(null=True)
 
 	
 	def city_state(self):
