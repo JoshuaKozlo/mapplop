@@ -9,6 +9,9 @@ from .models import City, Venue
 def map(request):
 	return render(request, 'map.html')
 
+def addVenue(request):
+	return render(request, 'addvenue.html')
+
 
 def getCities(request):
 	serialized = CitySerializer(City.objects.filter(venue__pk__isnull=False).distinct(), many=True)

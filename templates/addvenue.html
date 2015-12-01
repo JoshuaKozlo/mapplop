@@ -1,0 +1,97 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    	<title>Mapplop</title>
+		<!-- Styles -->
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    	<link rel="stylesheet" href="{% static 'css/main.css' %}">
+    	<!-- Fonts -->
+    	<link href='http://fonts.googleapis.com/css?family=Josefin+Sans|Questrial|Amatic+SC' rel='stylesheet' type='text/css'>
+	</head>
+	<body>
+		<!-- Navigation Bar -->
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+			<!-- Navbar Center Piece -->
+			<div class="navbar-center navbar-brand">
+				<a href="#top" class="navbar-brand" id="level1">Something Missing?</a>
+			</div>
+			<!-- Navbar Dropdown -->
+			<ul class="nav navbar-nav">
+     			<li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">add venue <span class="caret"></span></a>
+		          <ul class="dropdown-menu">
+		          	<li><a href="#">Home</a></li>
+		          	<li role="separator" class="divider"></li>
+		            <li><a href="/themap">the map</a></li>
+		            <li role="separator" class="divider"></li>
+		            <li><a href="#">Venue remove request</a></li>
+		            <li role="separator" class="divider"></li>
+		            <li class="dropdown-header">Follow Us On...</li>
+		            <li><a href="https://www.facebook.com/mapplop/">Facebook</a></li>
+		            <li><a href="https://twitter.com/mapplop">Twitter</a></li>
+		            <li><a href="https://www.youtube.com/channel/UCit7jhRfrhsn45B2Yx9Tv2A">Youtube</a></li>
+		          </ul>
+		        </li>
+		      </ul>
+		</nav>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12">
+					<img src="{% static 'img/newyorkquestion.png' %}">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+					<p class="lead"><span class="number">1. </span>Know a venue, bar or club that hosts live music on a weekly basis?</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+					<p class="lead"><span class="number">2. </span>Don't see them on our map?</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+					<p class="lead"><span class="number">3. </span>Fill out the form bellow with as much information as possible. <br> We'll check it out and if it's the real deal we'll add it so it can be seen with all the rest. </p>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-4">
+				<form>
+					<div class="form-group">
+						<label for="name">Venue Name</label>
+		    			<input type="text" class="form-control" id="name" placeholder="Chill Phil's Music Grill">
+		    		</div>
+		    		<div class="form-group">
+		    			<label for="state">State</label>
+		    			<select class="form-control">
+						</select>
+		    		</div>
+		    		<div class="form-group">
+						<label for="city">City</label>
+		    			<input type="text" class="form-control" id="city" placeholder="Montgomery">
+		    		</div>
+		    		<div class="form-group">
+						<label for="street">Street</label>
+		    			<input type="text" class="form-control" id="street" placeholder="Optional*">
+		    		</div>
+		    		<div class="form-group">
+						<label for="website">Website / Facebook</label>
+		    			<input type="text" class="form-control" id="website" placeholder="Optional*">
+		    		</div>
+
+		    		 <button type="submit" class="btn btn-primary">Submit</button>
+				</form>
+			</div>
+		</div>
+		<!-- Plugins -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<script src="{% static 'js/addvenue.js' %}"></script>
+	</body>
+</html>

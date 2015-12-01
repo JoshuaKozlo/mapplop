@@ -13,17 +13,46 @@
     	<link href='http://fonts.googleapis.com/css?family=Josefin+Sans|Questrial|Amatic+SC' rel='stylesheet' type='text/css'>
 	</head>
 	<body>
-		<nav class="navbar navbar-fixed-top">
-			<h1 id='level1'><a href="#top" id='headline'>Just Click The Map and Scroll Down</a></h1>
+		<!-- Navigation Bar -->
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+			<!-- Navbar Center Piece -->
+			<div class="navbar-center navbar-brand">
+				<a href="#top" class="navbar-brand" id="level1">Click the map Below and Scroll Down</a>
+			</div>
+			<!-- Navbar Dropdown -->
+			<ul class="nav navbar-nav">
+     			<li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">the map <span class="caret"></span></a>
+		          <ul class="dropdown-menu">
+		          	<li><a href="#">Home</a></li>
+		          	<li role="separator" class="divider"></li>
+		            <li><a href="/addvenue">Venue add request</a></li>
+		            <li><a href="#">Venue remove request</a></li>
+		            <li role="separator" class="divider"></li>
+		            <li class="dropdown-header">Follow Us On...</li>
+		            <li><a href="https://www.facebook.com/mapplop/">Facebook</a></li>
+		            <li><a href="https://twitter.com/mapplop">Twitter</a></li>
+		            <li><a href="https://www.youtube.com/channel/UCit7jhRfrhsn45B2Yx9Tv2A">Youtube</a></li>
+		          </ul>
+		        </li>
+		        <!-- Navbar Caption -->
+		        <li><p class="navbar-text hidden-sm collapse navbar-collapse">Music Venues In...</p></li>
+		      </ul>
 		</nav>
+		<!-- Top of Page -->
 		<a name="top"></a>
+		<!-- Map -->
 		<div class="container-fluid">
 			<div class="row">
 				<div class= 'map center-block col-md-12'></div>
 			</div>
+		</div>
+		<!-- Venue Data -->
+		<div class="container-fluid">
 			<div class="data"></div>
 		</div>
-		<!-- <div id="viz-wrapper"></div> -->
+
+	
     
 		<!-- Plugins -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

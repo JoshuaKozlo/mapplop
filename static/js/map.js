@@ -33,10 +33,11 @@ var projection = d3.geo.albersUsa()
     .scale(width)
     .translate([width / 2, height / 2]);
 
+
 var path = d3.geo.path()
     .projection(projection)
     .pointRadius(function(d) {
-      return d.properties.venue_count * .75;
+      return d.properties.venue_count * projection.scale() * .0003 + .4;
     });
 
 var svg = d3.select(".map").append("svg")
@@ -94,9 +95,9 @@ if(isMobile.any() == null) {
           .style('font-size', '1rem')
           .attr('class', 'place-label')
           .attr('transform', function(d) { return "translate(" + projection(d.geometry.coordinates) + ")";})
-          .attr("dx", ".2rem")
+          .attr("dx", ".1rem")
           .text(function(d) {
-            if (d.properties.population > 400000) {
+            if (d.properties.population > 500000) {
               return d.properties.name;
             } 
           })
@@ -142,7 +143,7 @@ function stateClicked(d) {
       .style("stroke-width", .1 / scale + "px")
       .attr("transform", "translate(" + translate + ")scale(" + scale + ")");
 
-  headlineState.innerHTML = '<a href="#top" id="headline">' + d.properties.name + '</a>';
+  headlineState.innerHTML = d.properties.name;
   getVenues('state', d);
   cg.selectAll('.place-label')
     .style('font-size', 1.5 / scale + 'rem')
@@ -157,7 +158,7 @@ function cityClicked(d) {
   } else {
       activeCity.classed('activeCity', false);
       activeCity = d3.select(this).classed('activeCity', true);
-      headlineState.innerHTML = '<a href="#top" id="headline">' + d.properties.name + ', ' + d.properties.state + '</a>';
+      headlineState.innerHTML = d.properties.name + ', ' + d.properties.state;
   }
   getVenues('city', d);
 }
@@ -173,7 +174,7 @@ function reset() {
       .style("stroke-width", ".07px")
       .attr("transform", "");
 
-  headlineState.innerHTML = '<a href="#top" id="headline">United States Of America</a>';
+  headlineState.innerHTML = 'United States';
   getVenues('US');
   cg.selectAll('.place-label')
     .style('font-size', '1rem')
@@ -188,6 +189,10 @@ function resize() {
     .translate([width / 2, height / 2])
     .scale(width);
 
+  path.pointRadius(function(d) {
+      return d.properties.venue_count * projection.scale() * .0003;
+    });
+
   svg
     .style('width', width + 'px')
     .style('height', height + 'px');
@@ -200,6 +205,10 @@ function resize() {
   g.selectAll('.city').attr('d', path);
   g.selectAll('.place-label')
     .attr('transform', function(d) { return "translate(" + projection(d.geometry.coordinates) + ")"; })
+
+  console.log(width)
+  console.log(height)
+  console.log(projection.scale())
 
   reset();
 }
@@ -251,10 +260,10 @@ function venueDiv(d) {
   var gmap = 'https://www.google.com/maps/place/' + fullAddress.split(' ').join('+'); 
   var div = '<div class="venue col-lg-4 col-md-6 col-xs-12 col-centered">' +
               '<h1>' + d.name + '</h1>' +
-              '<a href="http://www.' + d.website + '">' +
+              '<a target="_blank" href="http://www.' + d.website + '">' +
                 '<img class="center-block" src="' + d.image + '">' +
               '</a>' +
-              '<a href="' + gmap + '">' +
+              '<a target="_blank" href="' + gmap + '">' +
                 '<h2 class="street">-' + d.street + '-</h2>' +
               '</a>'
             '</div>'
