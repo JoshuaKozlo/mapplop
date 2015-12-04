@@ -116,8 +116,8 @@ if(isMobile.any() == null) {
 //       .attr('d', path)
 //       .attr('class', 'road')
 //       .attr('fill', 'none')
-//       .attr('stroke', 'red')
-//       .attr('stroke-width', '.75px')
+//       .attr('stroke', '#C2804A')
+//       .attr('stroke-width', '.1px')
 // });
 
 d3.select(window).on('resize', resize);

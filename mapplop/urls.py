@@ -20,8 +20,10 @@ from venues import views
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^$', 'venues.views.home'),
     url(r'^themap/', 'venues.views.map'),
-     url(r'^addvenue/', 'venues.views.addVenue'),
+    url(r'^addvenue/', 'venues.views.addVenue'),
+    url(r'^removevenue/', 'venues.views.removeVenue'),
     url(r'^getCities/', 'venues.views.getCities'),
     url(r'^getVenues/', 'venues.views.getVenues'),
 ] + static.static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

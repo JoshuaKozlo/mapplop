@@ -27,6 +27,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'mapplop.news@gmail.com'
+EMAIL_HOST_PASSWORD = 'maPPloP1qaz!QAZ'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
 
 # Application definition
 
@@ -81,8 +87,11 @@ WSGI_APPLICATION = 'mapplop.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'mapplopdb',
-        'USER': 'josh',
+        'NAME': 'mapplopawsdb',
+        'USER': 'mapplopmaster',
+        'PASSWORD': 'maPPloP3edc#EDC',
+        'HOST': 'mapplop.clnekr4nlkeb.us-east-1.rds.amazonaws.com',
+        'PORT': '5432',
     }
 }
 

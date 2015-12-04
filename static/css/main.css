@@ -3,24 +3,52 @@ RED: #C54B51 ORANGE: #C2804A YELLOW: #E7E05E GREEN: #8CC24B BLUE: #2389C1;
 FONTS: Josefin+Sans|Questrial|Amatic+SC
 */
 
-/*svg {
-	position: relative;
-}*/
-
 html {
 	font-size: 10px;
+	min-width: 100%;
+	overflow-x: hidden;
 }
 
 body {
 	padding-top: 55px;
+	min-width: 100%;
+}
+
+nav {
+	background-color: #fff;
+	box-shadow: 0px 2px 10px #333333;
+}
+
+img {
+	display: block;
+	margin: auto;
+}
+
+h1 {
+	font-family: 'Amatic SC';
+	text-align: center;
+}
+
+h2 {
+	text-align: center;
+	font-family: 'Josefin Sans';
+	font-size: 20px;
+}
+
+p {
+	font-family: "Josefin Sans";
+	text-align: center;
 }
 
 
 g {
 	fill: #eaeaea;
 	stroke:#141414;
-	stroke-width: .1;
-	/*transition: fill .5s ease-out;*/
+	stroke-width: .2;
+}
+
+g .state {
+	stroke-width: .3;
 }
 
 g .place-label {
@@ -29,27 +57,17 @@ g .place-label {
 }
 
 .inactive {
-	stroke: #fafafa;
+	stroke: red;
 	transition: stroke .5s ease-out;
 }
 
-.activeState {
+.activeState,
+.state:hover {
 	opacity: .75;
 }
 
 .activeCity {
 	fill: #8CC24B;
-}
-
-
-
-.state:hover {
-	opacity: .75;
-}
-
-h1 {
-	font-family: 'Amatic SC';
-	text-align: center;
 }
 
 .venue h1 {
@@ -65,16 +83,9 @@ h1 {
 	fill: #8CC24B;
 }
 
-h2 {
-	text-align: center;
-	font-family: 'Josefin Sans';
-	font-size: 20px;
-}
 
-nav {
-	background-color: #fff;
-	box-shadow: 0px 2px 10px #333333;
-}
+
+
 
 
 a, 
@@ -119,13 +130,13 @@ a:hover {
 
 .data img {
 	border-radius: 50%;
-	box-shadow: 0px 2px 30px #333;
+	box-shadow: 0px 2px 20px #333;
 	max-width: 25%;
 	margin: auto;
 }
 
 .data img:active {
-	box-shadow: 0px 2px 10px #333;
+	box-shadow: 0px 2px 5px #333;
 }
 
 
@@ -172,11 +183,7 @@ li {
 	font-family: "Josefin Sans";
 }
 
-p {
-	font-family: "Josefin Sans";
-	text-align: center;
-	margin-top: 30px;
-}
+
 
 .show {
 	display: block;
@@ -188,14 +195,13 @@ p {
 
 }
 
-img {
-	display: block;
-	margin: auto;
-}
+
 
 .number {
 	font-size: 2em;
 }
+
+
 
 @media only screen and (max-width : 992px) {
 	html {
@@ -209,3 +215,21 @@ img {
 
 }
 
+html, body, .container-table {
+    height: 100%;
+}
+.container-table {
+    display: table;
+}
+.vertical-center-row {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.big-text {
+	font-size: 60px;
+}
+
+.home h2 {
+	color: #C54B51;
+}

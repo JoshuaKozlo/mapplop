@@ -34,6 +34,7 @@ class Venue(models.Model):
 	street = models.CharField(max_length=50, null=True)
 	city = models.ForeignKey(City, null=True)
 	website = models.CharField(max_length=250, null=True)
+	featured = models.BooleanField(default=False)
 	image = models.ImageField(null=True)
 
 	

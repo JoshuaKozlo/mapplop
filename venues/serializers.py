@@ -8,8 +8,6 @@ class CitySerializer(GeoFeatureModelSerializer):
 		geo_field = 'point'
 		fields = ('name', 'state', 'population', 'venue_count')
 
-
-
 class VenueSerializer(serializers.ModelSerializer):
 
 	class Meta:

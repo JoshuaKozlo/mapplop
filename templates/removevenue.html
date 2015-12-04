@@ -17,18 +17,18 @@
 		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 			<!-- Navbar Center Piece -->
 			<div class="navbar-center navbar-brand">
-				<a href="#top" class="navbar-brand" id="level1">Something Missing?</a>
+				<a href="#top" class="navbar-brand" id="level1">Something Wrong?</a>
 			</div>
 			<!-- Navbar Dropdown -->
 			<ul class="nav navbar-nav">
      			<li class="dropdown">
-		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">add venue <span class="caret"></span></a>
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">remove venue <span class="caret"></span></a>
 		          <ul class="dropdown-menu">
 		          	<li><a href="/">Home</a></li>
 		          	<li role="separator" class="divider"></li>
 		            <li><a href="/themap">the map</a></li>
 		            <li role="separator" class="divider"></li>
-		            <li><a href="/removevenue">Venue change/remove request</a></li>
+		            <li><a href="/addvenue">Venue add request</a></li>
 		            <li role="separator" class="divider"></li>
 		            <li class="dropdown-header">Follow Us On...</li>
 		            <li><a href="https://www.facebook.com/mapplop/">Facebook</a></li>
@@ -41,22 +41,22 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-xs-12">
-					<img src="{% static 'img/newyorkquestion.png' %}">
+					<img src="{% static 'img/newyorknot.png' %}">
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-xs-12">
-					<p class="lead"><span class="number">1. </span>Know a venue, bar or club that hosts live music on a weekly basis?</p>
+					<p class="lead"><span class="number">1. </span>See a venue on here that shouldn't be?</p>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-xs-12">
-					<p class="lead"><span class="number">2. </span>Don't see them on our map?</p>
+					<p class="lead"><span class="number">2. </span>Perhaps they just moved and need a change of address?</p>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-xs-12">
-					<p class="lead"><span class="number">3. </span>Fill out the form bellow, we'll check it out and if it's the real deal <br> we'll add it so it can be seen with all the rest. </p>
+					<p class="lead"><span class="number">3. </span>Fill out the form bellow and let us know who and what's wrong.<br> We will check it out and if you weren't kidding we will make the changes <br> and you can thank yourself for helping us stay awesome. </p>
 				</div>
 			</div>
 		</div>
@@ -76,8 +76,12 @@
 						<label for="city">City</label>
 		    			<input required type="text" class="form-control" id="city" name="city" placeholder="Montgomery" value="{{ current_city}}">
 		    		</div>
+		    		<div class="form-group">
+		    			<label>What's Wrong?</label>
+						<textarea required class="form-control" rows="3" name="description" placeholder="They have gone extinct." value="{{ current_description }}"></textarea>
+		    		</div>
 		    		<button type="submit" class="btn btn-primary">Submit</button>
-				</form>
+		    	</form>
 			</div>
 		</div>
 		<!-- Plugins -->

@@ -6,3 +6,5 @@ $.ajax({
 		$("select").append('<option>' + data[i].name + '</option>');
 	};
 })
+
+
