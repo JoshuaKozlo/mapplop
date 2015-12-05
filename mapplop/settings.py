@@ -87,11 +87,8 @@ WSGI_APPLICATION = 'mapplop.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'mapplopawsdb',
-        'USER': 'mapplopmaster',
-        'PASSWORD': 'maPPloP3edc#EDC',
-        'HOST': 'mapplop.clnekr4nlkeb.us-east-1.rds.amazonaws.com',
-        'PORT': '5432',
+        'NAME': 'mapplopdb',
+        'USER': 'josh',
     }
 }
 

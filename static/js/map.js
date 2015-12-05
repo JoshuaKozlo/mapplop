@@ -270,13 +270,6 @@ function venueDiv(d) {
   return div
 }
 
-
-
-
-
-
-
-
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
     getVenues('US');   

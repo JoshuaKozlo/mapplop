@@ -32,8 +32,18 @@
 		            <li role="separator" class="divider"></li>
 		            <li class="dropdown-header">Follow Us On...</li>
 		            <li><a href="https://www.facebook.com/mapplop/">Facebook</a></li>
+		            <li class="follow">
+			            <div class="fb-like" data-href="http://www.mapplop.com" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+		            </li>
 		            <li><a href="https://twitter.com/mapplop">Twitter</a></li>
+		            <li class="follow">
+		            	<a class="twitter-follow-button" href="https://twitter.com/mapplop"
+		            	data-show-screen-name=false>@mapplop</a>
+		            </li>
 		            <li><a href="https://www.youtube.com/channel/UCit7jhRfrhsn45B2Yx9Tv2A">Youtube</a></li>
+		            <li class='follow'>
+		            	<div class="g-ytsubscribe" data-channelid="UCit7jhRfrhsn45B2Yx9Tv2A" data-layout="default" data-count="default"></div>
+		            </li>
 		          </ul>
 		        </li>
 		      </ul>
@@ -46,17 +56,17 @@
 			</div>
 			<div class="row">
 				<div class="col-xs-12">
-					<p class="lead"><span class="number">1. </span>Know a venue, bar or club that hosts live music on a weekly basis?</p>
+					<p class="lead"><span class="big-number">1. </span>Know a venue, bar or club that hosts live music on a weekly basis?</p>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-xs-12">
-					<p class="lead"><span class="number">2. </span>Don't see them on our map?</p>
+					<p class="lead"><span class="big-number">2. </span>Don't see them on our map?</p>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-xs-12">
-					<p class="lead"><span class="number">3. </span>Fill out the form bellow, we'll check it out and if it's the real deal <br> we'll add it so it can be seen with all the rest. </p>
+					<p class="lead"><span class="big-number">3. </span>Fill out the form bellow, we'll check it out and if it's the real deal <br> we'll add it so it can be seen with all the rest. </p>
 				</div>
 			</div>
 		</div>
@@ -83,6 +93,10 @@
 		<!-- Plugins -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<!-- For Social Followings -->
+		<script src="{% static 'js/social.js' %}"></script>
+		<script src="https://apis.google.com/js/platform.js"></script>
+		<!-- Page Scripts -->
 		<script src="{% static 'js/addvenue.js' %}"></script>
 	</body>
 </html>
