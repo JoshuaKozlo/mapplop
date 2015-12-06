@@ -1,4 +1,4 @@
-var headlineState = document.getElementById('level1');
+var headlineState = document.getElementById('nav-headline');
 
 var isMobile = {
     Android: function() {
@@ -66,11 +66,6 @@ d3.json("/static/json/USA.json", function(us) {
         return 'state ' + d.id
       })
       .on("click", stateClicked);
-
-  // g.append("path")
-  //     .datum(topojson.mesh(us, us.objects.ne_10m_USA_states, function(a, b) { return a !== b; }))
-  //     .attr("class", "mesh")
-  //     .attr("d", path);
 });
 
 if(isMobile.any() == null) {
@@ -105,23 +100,7 @@ if(isMobile.any() == null) {
     });
 }
 
-
-
-
-
-// d3.json('/static/json/Roads.json', function(road) {
-//   g.selectAll('.road')
-//       .data(topojson.feature(road, road.objects.Interstate).features)
-//     .enter().append('path')
-//       .attr('d', path)
-//       .attr('class', 'road')
-//       .attr('fill', 'none')
-//       .attr('stroke', '#C2804A')
-//       .attr('stroke-width', '.1px')
-// });
-
 d3.select(window).on('resize', resize);
-
 
 function stateClicked(d) {
   if (activeState.node() === this && activeCity.node() === null) return reset();
@@ -129,7 +108,6 @@ function stateClicked(d) {
   activeCity = d3.select(null);
   activeState.classed("activeState", false);
   activeState = d3.select(this).classed("activeState", true);
-  // console.log(active.attr('class').split(' ')[1]);
   var bounds = path.bounds(d),
       dx = bounds[1][0] - bounds[0][0],
       dy = bounds[1][1] - bounds[0][1],
@@ -151,8 +129,6 @@ function stateClicked(d) {
 
 
 function cityClicked(d) {
-  // activeState.classed('activeState', false);
-  // activeState = d3.select(null);
   if (activeCity.node() === this) {
       return;
   } else {
@@ -204,12 +180,9 @@ function resize() {
   g.selectAll('.state').attr('d', path);
   g.selectAll('.city').attr('d', path);
   g.selectAll('.place-label')
-    .attr('transform', function(d) { return "translate(" + projection(d.geometry.coordinates) + ")"; })
-
-  console.log(width)
-  console.log(height)
-  console.log(projection.scale())
-
+    .attr('transform', function(d) { 
+      return "translate(" + projection(d.geometry.coordinates) + ")"; 
+  });
   reset();
 }
 
@@ -265,12 +238,11 @@ function venueDiv(d) {
               '</a>' +
               '<a target="_blank" href="' + gmap + '">' +
                 '<h2 class="street">-' + d.street + '-</h2>' +
-              '</a>'
+              '</a>' +
             '</div>'
   return div
 }
 
 $(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();
     getVenues('US');   
 });

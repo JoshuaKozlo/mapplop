@@ -95,13 +95,13 @@ g .place-label {
 	color: #C54B51;
 }
 
-#level1 {
+#nav-headline {
 	font-size: 2em;
 	font-family: 'Amatic SC';
 	float: none;
 }
 
-#level1:hover {
+#nav-headline:hover {
 	text-decoration: underline;
 }
 
@@ -152,7 +152,7 @@ html, body, .container-table {
 	html {
 		font-size: 6px;
 	}
-	#level1 {
+	#nav-headline {
 		font-size: 1.25em;
 	}
 }
