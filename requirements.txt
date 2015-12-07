@@ -8,3 +8,4 @@ djangorestframework-gis==0.9.6
 gunicorn==19.4.1
 psycopg2==2.6.1
 static3==0.6.1
+whitenoise==2.0.6
