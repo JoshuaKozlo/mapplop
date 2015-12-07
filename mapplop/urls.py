@@ -19,11 +19,11 @@ from django.contrib import admin
 from venues import views
 
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', 'venues.views.home'),
-    url(r'^themap/', 'venues.views.map'),
-    url(r'^addvenue/', 'venues.views.addVenue'),
-    url(r'^removevenue/', 'venues.views.removeVenue'),
-    url(r'^getCities/', 'venues.views.getCities'),
-    url(r'^getVenues/', 'venues.views.getVenues'),
+    url(r'^mapplopsuperadmin/', include(admin.site.urls)),
+    url(r'^$', views.home),
+    url(r'^themap/', views.map),
+    url(r'^addvenue/', views.addVenue),
+    url(r'^removevenue/', views.removeVenue),
+    url(r'^getCities/', views.getCities),
+    url(r'^getVenues/', views.getVenues),
 ] + static.static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
