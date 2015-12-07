@@ -1,4 +1,7 @@
-venues/migrations/*
+venv
+*.pyc
+staticfiles
+
 
 
 
