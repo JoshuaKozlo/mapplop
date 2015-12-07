@@ -37,6 +37,8 @@ EMAIL_HOST_PASSWORD = 'maPPloP1qaz!QAZ'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
+ADMINS = (('Joshua', 'J-kozlowski@live.com'),)
+
 
 # Application definition
 
