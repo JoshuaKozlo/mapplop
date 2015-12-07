@@ -130,7 +130,7 @@ GDAL_LIBRARY_PATH = environ.get('GDAL_LIBRARY_PATH')
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = 'staticfiles'
 
 STATICFILES_DIRS =(
     os.path.join(BASE_DIR, 'static'),
@@ -138,4 +138,4 @@ STATICFILES_DIRS =(
 
 MEDIA_URL = '/media/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = 'media'
