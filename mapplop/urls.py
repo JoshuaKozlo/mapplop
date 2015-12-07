@@ -26,4 +26,7 @@ urlpatterns = [
     url(r'^removevenue/', views.removeVenue),
     url(r'^getCities/', views.getCities),
     url(r'^getVenues/', views.getVenues),
-] + static.static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] 
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
