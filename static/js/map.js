@@ -1,5 +1,5 @@
 var headlineState = document.getElementById('nav-headline');
-
+alert('some-unique-string')
 var isMobile = {
     Android: function() {
         return navigator.userAgent.match(/Android/i);
