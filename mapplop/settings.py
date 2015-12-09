@@ -24,8 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '_u!7vqh*yqa4_9uke=#y811ev_pnj-@c_$9175$9y-z)xb6m-^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-
+DEBUG = True
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
@@ -139,24 +138,22 @@ STATICFILES_DIRS =(
     os.path.join(BASE_DIR, 'static'),
 )
 
-
-MEDIA_URL = '/media/'
-
-MEDIA_ROOT = 'media'
-
 # Amazon S3 
-
 AWS_STORAGE_BUCKET_NAME = 'mapplopstaticmedia'
 AWS_ACCESS_KEY_ID = 'AKIAJLROC5E62X2OR35Q'
 AWS_SECRET_ACCESS_KEY = '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'
-
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-
-STATIC_URL = "https://%s/" % AWS_S3_CUSTOM_DOMAIN
-
-STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
 AWS_HEADERS = {  # see http://developer.yahoo.com/performance/rules.html#expires
         'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
         'Cache-Control': 'max-age=94608000',
-    }
+}
+
+STATICFILES_LOCATION = 'static'
+STATICFILES_STORAGE = 'mapplop.custom_storages.StaticStorage'
+STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
+
+MEDIA_ROOT = 'media'
+MEDIAFILES_LOCATION = 'media'
+MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
+DEFAULT_FILE_STORAGE = 'mapplop.custom_storages.MediaStorage'
