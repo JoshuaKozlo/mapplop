@@ -86,7 +86,6 @@ if(isMobile.any() == null) {
       cg.selectAll('.place-label')
           .data(city.features)
         .enter().append('text')
-          .style('color', 'red')
           .style('font-size', '1rem')
           .attr('class', 'place-label')
           .attr('transform', function(d) { return "translate(" + projection(d.geometry.coordinates) + ")";})
