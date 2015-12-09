@@ -57,7 +57,7 @@ var sg = g.append('g');
 
 var cg = g.append('g');
 
-d3.json("/static/json/USA.json", function(us) {
+d3.json("https://s3.amazonaws.com/mapplopstaticmedia/json/USA.json", function(us) {
   sg.selectAll(".state")
       .data(topojson.feature(us, us.objects.ne_10m_USA_states).features)
     .enter().append("path")
