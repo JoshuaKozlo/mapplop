@@ -22,7 +22,8 @@ var isMobile = {
 };
 
 var margin = {top: 10, left: 10, bottom: 10, right: 10},
-    width = parseInt(d3.select('.map').style('width'))
+    cachedWidth = $(window).width(),
+    width = parseInt(d3.select('.map').style('width')),
     width = width - margin.left - margin.right,
     mapRatio = .46,
     height = width * mapRatio,
@@ -37,7 +38,7 @@ var projection = d3.geo.albersUsa()
 var path = d3.geo.path()
     .projection(projection)
     .pointRadius(function(d) {
-      return d.properties.venue_count * projection.scale() * .0003 + .4;
+      return d.properties.venue_count * projection.scale() / 6000 + .5;
     });
 
 var svg = d3.select(".map").append("svg")
@@ -69,35 +70,34 @@ d3.json("https://s3.amazonaws.com/mapplopstaticmedia/static/json/USA.json", func
 });
 
 if(isMobile.any() == null) {
+  d3.json('/getCities/', function(city) {
+    cg.selectAll('.city')
+      .data(city.features)
+    .enter().append('path')
+      .attr('d', path)
+      .attr('class', function(d) {
+        return 'city ' + d.properties.name;
+      })
+      .attr('fill', '#C54B51')
+      .on('click', cityClicked)
+      .append('title')
+        .text(function(d) { return d.properties.name; });
 
-    d3.json('/getCities/', function(city) {
-      cg.selectAll('.city')
+    cg.selectAll('.place-label')
         .data(city.features)
-      .enter().append('path')
-        .attr('d', path)
-        .attr('class', function(d) {
-          return 'city ' + d.properties.name;
+      .enter().append('text')
+        .style('font-size', '1rem')
+        .attr('class', 'place-label')
+        .attr('transform', function(d) { return "translate(" + projection(d.geometry.coordinates) + ")";})
+        .attr("dx", ".25rem")
+        .text(function(d) {
+          if (d.properties.population > 500000) {
+            return d.properties.name;
+          } 
         })
-        .attr('fill', '#C54B51')
-        .on('click', cityClicked)
-        .append('title')
-          .text(function(d) { return d.properties.name; });
 
-      cg.selectAll('.place-label')
-          .data(city.features)
-        .enter().append('text')
-          .style('font-size', '1rem')
-          .attr('class', 'place-label')
-          .attr('transform', function(d) { return "translate(" + projection(d.geometry.coordinates) + ")";})
-          .attr("dx", ".1rem")
-          .text(function(d) {
-            if (d.properties.population > 500000) {
-              return d.properties.name;
-            } 
-          })
-
-    });
-}
+  });
+  }
 
 d3.select(window).on('resize', resize);
 
@@ -156,6 +156,7 @@ function reset() {
 }
 
 function resize() {
+  newWidth = $(window).width();
   width = parseInt(d3.select('.map').style('width'));
   width = width - margin.left - margin.right;
   height = width * mapRatio;
@@ -182,7 +183,10 @@ function resize() {
     .attr('transform', function(d) { 
       return "translate(" + projection(d.geometry.coordinates) + ")"; 
   });
-  reset();
+  if(newWidth !== cachedWidth) {
+    reset();
+    cachedWidth = newWidth;
+  }
 }
 
 
@@ -243,5 +247,8 @@ function venueDiv(d) {
 }
 
 $(document).ready(function(){
-    getVenues('US');   
+    getVenues('US');
+    $("#nav-headline")
+      .fadeOut(1000).fadeIn(500)
+      .fadeOut(1000).fadeIn(500)
 });
