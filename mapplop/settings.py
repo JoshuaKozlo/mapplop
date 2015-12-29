@@ -29,7 +29,7 @@ DEBUG = False
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 ALLOWED_HOSTS = ['herokuapp.com', 'mapplop.com', 'www.mapplop.com', 
-                'lit-sands-1894.herokuapp.com']
+                'lit-sands-1894.herokuapp.com', '*']
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'mapplop.news@gmail.com'
