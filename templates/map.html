@@ -1,93 +1,16 @@
+{% extends "base.html" %}
 {% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    	<title>Mapplop | Venues!</title>
-    	<link rel="shortcut icon" href="{% static 'img/logo.ico' %}">
-		<!-- Styles -->
-    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    	<link rel="stylesheet" href="{% static 'css/main.min.css' %}">
-    	<!-- Fonts -->
-    	<link href='https://fonts.googleapis.com/css?family=Josefin+Sans|Questrial|Amatic+SC' rel='stylesheet' type='text/css'>
-	</head>
-	<body>
-		<!-- Navigation Bar -->
-		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-			<!-- Navbar Center Piece -->
-			<div class="navbar-center navbar-brand">
-				<a href="#top" class="navbar-brand" id="nav-headline">Click map and scroll down</a>
-			</div>
-			<!-- Navbar Dropdown -->
-			<ul class="nav navbar-nav">
-     			<li class="dropdown">
-		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">the map <span class="caret"></span></a>
-		          <ul class="dropdown-menu">
-		          	<li><a href="/">Home</a></li>
-		          	<li role="separator" class="divider"></li>
-		            <li><a href="/addvenue">Venue add request</a></li>
-		            <li><a href="/removevenue">Venue change/remove request</a></li>
-		            <li role="separator" class="divider"></li>
-		            <li class="dropdown-header">Follow Us On...</li>
-		            <li><a href="https://www.facebook.com/mapplop/">Facebook</a></li>
-		            <li class="follow">
-			            <div class="fb-like" data-href="https://www.facebook.com/mapplop/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
-		            </li>
-		            <li><a href="https://twitter.com/mapplop">Twitter</a></li>
-		            <li class="follow">
-		            	<a class="twitter-follow-button" href="https://twitter.com/mapplop"
-		            	data-show-screen-name=false>@mapplop</a>
-		            </li>
-		            <li><a href="https://www.youtube.com/channel/UCit7jhRfrhsn45B2Yx9Tv2A">Youtube</a></li>
-		            <li class='follow'>
-		            	<div class="g-ytsubscribe" data-channelid="UCit7jhRfrhsn45B2Yx9Tv2A" data-layout="default" data-count="default"></div>
-		            </li>
-		          </ul>
-		        </li>
-		        <!-- Navbar Caption -->
-		        <li><p class="navbar-text hidden-sm collapse navbar-collapse">Music Venues In...</p></li>
-		      </ul>
-		</nav>
-		<!-- Top of Page -->
-		<a name="top"></a>
-		<!-- Map -->
-		<div class="container-fluid">
-			<div class="row">
-				<div class= 'map center-block col-md-12'></div>
-			</div>
-		</div>
-		<!-- Venue Data -->
-		<div class="container-fluid">
-			<div class="data"></div>
-		</div>
+{% block content %}
 
-	
-    
-		<!-- Plugins -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-		<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-		<script src="https://d3js.org/topojson.v1.min.js" charset="utf-8"></script>
-		<!-- For Social Followings -->
-		<script src="{% static 'js/social.js' %}"></script>
-		<script src="https://apis.google.com/js/platform.js"></script>
-		<!-- Analytics -->
-		<script>
-		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+<!-- Map -->
+<div class= 'map center-block col-md-12'>
+</div>
 
-		  ga('create', 'UA-65264150-1', 'auto');
-		  ga('send', 'pageview');
-		</script>
-		<!-- Page Scripts-->
-		<script src="{% static 'js/map.min.js' %}"></script>
-
-	</body>
-</html>
+<!-- Venue Data -->
+<div class="data"></div>
 
 
-
+{% endblock content %}
+{% block script %}
+<script src="{% static 'js/map.js' %}"></script>
+{% endblock script %}

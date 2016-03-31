@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block head_title %}
+{{ instance.title }} | {{ block.super }}
+{% endblock head_title%}
+
+{% block content %}
+
+{% if instance.image %}
+<img src="{{ instance.image.url }}" class="img-responsive img-banner">
+{% endif %}
+<h1 class="biggen">{{ title }}</h1>
+<div class="point-group">
+	{% for point in instance.bullets.objects %}
+	<h3><small>&#0149</small> {{ point }} <small>&#0149</small></h3>
+	{% endfor %}
+</div>
+
+<div class="col-sm-8 col-sm-offset-2 content-detail">
+	{% if instance.video %}
+	<div class="panel panel-default">
+		<a class="btn" data-toggle="collapse" data-target="#viewdetails3">
+			<div class="panel-heading">Video Overview / Tutorial &raquo;</div>
+		</a>
+		<div class='embed-container collapse in' id="viewdetails3">
+			<iframe src="{{ instance.video }}" frameborder="0" allowfullscreen></iframe>
+		</div>
+	</div>
+	{% endif %}
+	<div class="panel panel-default">
+		<a class="btn" data-toggle="collapse" data-target="#viewdetails">
+			<div class="panel-heading">Overview &raquo;</div>
+		</a>
+		<div class="collapse in" id="viewdetails">{{ instance.content|linebreaks }}</div>
+    </div>
+	
+	<div class="panel panel-default">
+		<a class="btn" data-toggle="collapse" data-target="#viewdetails1">
+			<div class="panel-heading">Tutorial &raquo;</div>
+		</a>
+		<div class="collapse" id="viewdetails1">{{ instance.content|linebreaks }}</div>
+	</div>
+
+	<div class="panel panel-default">
+		<a class="btn" data-toggle="collapse" data-target="#viewdetails2">
+			<div class="panel-heading">Pricing &raquo;</div>
+		</a>
+		<div class="collapse" id="viewdetails2"><p>Blah Blah lots of stuff</p></div>
+	</div>
+	<div class="point-group">
+		{% if instance.android %}
+		<h4><small>-</small> Android <small>-</small></h4>
+		{% endif %}
+		{% if instance.ios %}
+		<h4><small>-</small> iOS <small>-</small></h4>
+		{% endif %}
+		{% if instance.desktopapp %}
+		<h4><small>-</small> Desktop App <small>-</small></h4>
+		{% endif %}
+		{% if instance.webapp %}
+		<h4><small>-</small> Web App <small>-</small></h4>
+		{% endif %}
+	</div>
+	<div class="fb-div">
+		<div class="fb-comments" data-href="{{ request.build_absolute_uri }}" data-numposts="5"></div>
+	</div>
+</div>
+{% endblock content %}
+
+

@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '_u!7vqh*yqa4_9uke=#y811ev_pnj-@c_$9175$9y-z)xb6m-^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
@@ -54,6 +54,7 @@ INSTALLED_APPS = (
     'rest_framework_gis',
     'storages',
     'venues',
+    'posts',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -94,11 +95,8 @@ WSGI_APPLICATION = 'mapplop.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'mapplopawsdb',
-        'USER': 'mapmaster',
-        'HOST': 'mapplopawsdb.clnekr4nlkeb.us-east-1.rds.amazonaws.com',
-        'PORT': '5432',
-        'PASSWORD': 'maPP10PDBMAP$'
+        'NAME': 'mapplopdb',
+        'USER': 'josh',
     }
 }
 

@@ -1,4 +1,4 @@
-var headlineState = document.getElementById('nav-headline');
+var headlineState = document.getElementById('headlinestate');
 
 var isMobile = {
     Android: function() {
@@ -22,8 +22,8 @@ var isMobile = {
 };
 
 var margin = {top: 10, left: 10, bottom: 10, right: 10},
-    cachedWidth = $(window).width(),
-    width = parseInt(d3.select('.map').style('width')),
+    cachedWidth = $('#page-content-wrapper').width(),
+    width = parseInt(d3.select('#page-content-wrapper').style('width')),
     width = width - margin.left - margin.right,
     mapRatio = .46,
     height = width * mapRatio,
@@ -100,6 +100,9 @@ if(isMobile.any() == null) {
   }
 
 d3.select(window).on('resize', resize);
+$('#toggle-button').click(resize);
+$('#toggle-button').click(reset);
+
 
 function stateClicked(d) {
   if (activeState.node() === this && activeCity.node() === null) return reset();
@@ -120,7 +123,6 @@ function stateClicked(d) {
       .style("stroke-width", .1 / scale + "px")
       .attr("transform", "translate(" + translate + ")scale(" + scale + ")");
 
-  headlineState.innerHTML = d.properties.name;
   getVenues('state', d);
   cg.selectAll('.place-label')
     .style('font-size', 1.5 / scale + 'rem')
@@ -128,12 +130,12 @@ function stateClicked(d) {
 
 
 function cityClicked(d) {
+  console.log('clicked')
   if (activeCity.node() === this) {
       return;
   } else {
       activeCity.classed('activeCity', false);
       activeCity = d3.select(this).classed('activeCity', true);
-      headlineState.innerHTML = d.properties.name + ', ' + d.properties.state;
   }
   getVenues('city', d);
 }
@@ -149,15 +151,15 @@ function reset() {
       .style("stroke-width", ".07px")
       .attr("transform", "");
 
-  headlineState.innerHTML = 'United States';
   getVenues('US');
   cg.selectAll('.place-label')
     .style('font-size', '1rem')
 }
 
 function resize() {
-  newWidth = $(window).width();
-  width = parseInt(d3.select('.map').style('width'));
+  setTimeout(function () {
+  newWidth = $('#page-content-wrapper').width();
+  width = parseInt(d3.select('#page-content-wrapper').style('width'));
   width = width - margin.left - margin.right;
   height = width * mapRatio;
 
@@ -187,6 +189,7 @@ function resize() {
     reset();
     cachedWidth = newWidth;
   }
+}, 500);
 }
 
 
@@ -235,16 +238,36 @@ function venueDiv(d) {
   var fullAddress = d.street + ' ' + d.city_state[0] + ' ' + d.city_state[1];
   var gmap = 'https://www.google.com/maps/place/' + fullAddress.split(' ').join('+'); 
   var div = '<div class="venue col-lg-4 col-md-6 col-xs-12 col-centered">' +
-              '<h1>' + d.name + '</h1>' +
               '<a target="_blank" href="http://www.' + d.website + '">' +
-                '<img class="center-block" src="' + d.image + '">' +
+                '<h1>' + d.name + '</h1>' +
               '</a>' +
+              '<div class="flip">' + 
+                '<div class="card">' + 
+                  '<div class="face front">' + 
+                    '<img class="center-block" src="' + d.image + '">' +
+                  '</div>' + 
+                  '<div class="face back">' +
+
+                      '<div class="row"><h3 class="col-md-12">Booking: billy@booking.com</h3></div>' +
+                      '<div class="row"><h3 class="col-md-12">National, Local, </h3></div>' +
+                      
+                
+                  '</div>' + 
+                '</div>' + 
+              '</div>' + 
+
+              
               '<a target="_blank" href="' + gmap + '">' +
                 '<h2 class="street">-' + d.street + '-</h2>' +
               '</a>' +
             '</div>'
   return div
 }
+
+$(document).on('click', '.flip', function(){
+  $(this).find(".card").toggleClass("flipped");
+  return false;
+});
 
 $(document).ready(function(){
     getVenues('US');

@@ -43,6 +43,14 @@ def getCities(request):
 	response = HttpResponse(json)
 	return response
 
+def getCity(request):
+	city = request.GET.get('city')
+	state = request.GET.get('state')
+	serialized = CitySerializer(City.objects.filter(name=city, state=state).distinct(), many=True)
+	json = JSONRenderer().render(serialized.data)
+	response = HttpResponse(json)
+	return response
+
 
 def getVenues(request):
 	level = request.GET.get('scale')
@@ -50,7 +58,7 @@ def getVenues(request):
 		venues = Venue.objects.filter(featured=True).order_by('city__state', 'city__name', 'name')
 	elif level == 'state':
 		state = request.GET.get('state')
-		venues = Venue.objects.filter(city__state=state).order_by('city__state', 'city__name', 'name')
+		venues = Venue.objects.filter(city__state=state).order_by('-featured', 'city__state', 'city__name', 'name')
 	else:
 		state = request.GET.get('state')
 		city = request.GET.get('city')
@@ -60,6 +68,15 @@ def getVenues(request):
 	json = JSONRenderer().render(serialized.data)
 	response = HttpResponse(json)
 	return response
+
+def promo(request, state, city):
+	state = state.upper()
+	city = city.replace('_', ' ')
+	city =city.title()
+	query = City.objects.filter(state=state, name=city)
+	context = {'state': query[0].state, 'city': query[0].name}
+	return render(request, 'promo.html', context)
+
 
 def emailAddRemoveRequest(data, reqType):
 	fromEmail = settings.EMAIL_HOST_USER
