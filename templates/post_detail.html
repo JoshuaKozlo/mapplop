@@ -38,14 +38,14 @@
 		<a class="btn" data-toggle="collapse" data-target="#viewdetails1">
 			<div class="panel-heading">Tutorial &raquo;</div>
 		</a>
-		<div class="collapse" id="viewdetails1">{{ instance.content|linebreaks }}</div>
+		<div class="collapse" id="viewdetails1">{{ instance.tutorial|linebreaks }}</div>
 	</div>
 
 	<div class="panel panel-default">
 		<a class="btn" data-toggle="collapse" data-target="#viewdetails2">
 			<div class="panel-heading">Pricing &raquo;</div>
 		</a>
-		<div class="collapse" id="viewdetails2"><p>Blah Blah lots of stuff</p></div>
+		<div class="collapse" id="viewdetails2"><p>{{ instance.pricing|linebreaks }}</p></div>
 	</div>
 	<div class="point-group">
 		{% if instance.android %}

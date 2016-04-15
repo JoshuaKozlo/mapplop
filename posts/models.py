@@ -10,6 +10,8 @@ class Post(models.Model):
 	title = models.CharField(max_length=120)
 	slug = models.SlugField(unique=True)
 	content = models.TextField()
+	tutorial = models.TextField(default="Blank")
+	pricing = models.TextField(default="Blank")
 	updated = models.DateTimeField(auto_now=True, auto_now_add=False)
 	timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
 	image = models.ImageField(upload_to="post/", null=True, blank=True)
