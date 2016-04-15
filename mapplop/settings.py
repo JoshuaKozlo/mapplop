@@ -139,6 +139,7 @@ AWS_STORAGE_BUCKET_NAME = 'mapplopstaticmedia'
 AWS_ACCESS_KEY_ID = 'AKIAJLROC5E62X2OR35Q'
 AWS_SECRET_ACCESS_KEY = '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'
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_PRELOAD_METADATA = True
 
 AWS_HEADERS = {  # see http://developer.yahoo.com/performance/rules.html#expires
         'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
