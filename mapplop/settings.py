@@ -155,7 +155,8 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 STATICFILES_LOCATION = 'static'
 
 if not DEBUG:
-    STATICFILES_STORAGE = 'mapplop.custom_storages.StaticStorage'
+    # STATICFILES_STORAGE = 'mapplop.custom_storages.StaticStorage'
+    STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
     STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
 
 if DEBUG:
