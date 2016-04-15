@@ -8,7 +8,9 @@
 	{% for obj in object_list %}
 	<a href="{{ obj.get_absolute_url }}">
 		<div class="app-div">
+			{% if obj.image %}
 			<img src="{{ obj.image.url }}">
+			{% endif %}
 			<ul>
 				{% for point in obj.bullets.objects %}
 				<li>{{ point }}</li>

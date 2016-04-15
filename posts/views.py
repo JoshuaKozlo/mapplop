@@ -8,8 +8,8 @@ from .models import Post
 
 # Create your views here.
 
-def post_detail(request, id):
-	instance = get_object_or_404(Post, id=id)
+def post_detail(request, slug):
+	instance = get_object_or_404(Post, slug=slug)
 	context = {
 		"title": instance.title,
 		"instance": instance,
