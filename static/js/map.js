@@ -21,11 +21,11 @@ var isMobile = {
     }
 };
 
-var margin = {top: 10, left: 10, bottom: 10, right: 10},
+var margin = {top: 0, left: 0, bottom: 0, right: 0},
     cachedWidth = $('#page-content-wrapper').width(),
     width = parseInt(d3.select('#page-content-wrapper').style('width')),
     width = width - margin.left - margin.right,
-    mapRatio = .46,
+    mapRatio = .48,
     height = width * mapRatio,
     activeState = d3.select(null);
     activeCity = d3.select(null);
@@ -70,7 +70,7 @@ d3.json("https://s3.amazonaws.com/mapplopstaticmedia/static/json/USA.json", func
 });
 
 if(isMobile.any() == null) {
-  d3.json('/getCities/', function(city) {
+  d3.json('/map/getCities/', function(city) {
     cg.selectAll('.city')
       .data(city.features)
     .enter().append('path')
@@ -228,7 +228,7 @@ function getVenues(level, d) {
   } else {
     data = {'scale' : 'city', 'state' : d.properties.state, 'city' : d.properties.name}
   }
-  $.getJSON('/getVenues/', data)
+  $.getJSON('/map/getVenues/', data)
     .done(function( json ) {
       layoutUS(json);
     });
@@ -248,8 +248,8 @@ function venueDiv(d) {
                   '</div>' + 
                   '<div class="face back">' +
 
-                      '<div class="row"><h3 class="col-md-12">Booking: billy@booking.com</h3></div>' +
-                      '<div class="row"><h3 class="col-md-12">National, Local, </h3></div>' +
+                      '<div class="row"><h3 class="col-md-12">More Behind</h3></div>' +
+                      '<div class="row"><h3 class="col-md-12">Here Soon! </h3></div>' +
                       
                 
                   '</div>' + 

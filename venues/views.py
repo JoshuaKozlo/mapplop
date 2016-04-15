@@ -1,39 +1,23 @@
 from django.conf import settings
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.core.serializers import serialize
-from .serializers import CitySerializer, VenueSerializer
 from rest_framework.renderers import JSONRenderer
 from django.core.mail import send_mail
 from .models import City, Venue
+from .forms import ModifyVenuesForm
+from .serializers import CitySerializer, VenueSerializer
 
 # Create your views here.
 def home(request):
 	return render(request, 'home.html')
 
+
 def map(request):
 	return render(request, 'map.html')
 
-def addVenue(request):
-	if request.method == 'POST':
-		data = [request.POST['name'],
-				request.POST['city'],
-				request.POST['state']]
-		emailAddRemoveRequest(data, 'add')
-		return render(request, 'addvenueconfirm.html')
-
-	return render(request, 'addvenue.html')
-
-def removeVenue(request):
-	if request.method == 'POST':
-		data = [request.POST['name'],
-				request.POST['city'],
-				request.POST['state'],
-				request.POST['description']]
-		emailAddRemoveRequest(data, 'change or remove')
-		return render(request, 'removevenueconfirm.html')
-
-	return render(request, 'removevenue.html')
+def thanks(request):
+	return render(request, 'thanks.html')
 
 
 def getCities(request):
@@ -69,6 +53,7 @@ def getVenues(request):
 	response = HttpResponse(json)
 	return response
 
+
 def promo(request, state, city):
 	state = state.upper()
 	city = city.replace('_', ' ')
@@ -78,15 +63,20 @@ def promo(request, state, city):
 	return render(request, 'promo.html', context)
 
 
-def emailAddRemoveRequest(data, reqType):
-	fromEmail = settings.EMAIL_HOST_USER
-	toEmail = 'mapplop@gmail.com'
-	if reqType == 'add':
-		subject = 'ADD: {}, {} - {}'.format(data[1], data[2], data[0])
-		send_mail(subject, '', fromEmail, [toEmail], fail_silently=True)
-	else:
-		subject = 'CHANGE/REMOVE: {} - {}, {}'.format(data[0], data[1], data[2])
-		send_mail(subject, data[3], fromEmail, [toEmail], fail_silently=True)
+def modifyVenues(request):
+	form = ModifyVenuesForm(request.POST or None, auto_id=False)
+	if request.method == 'POST':
+		if form.is_valid():
+			fromEmail = settings.EMAIL_HOST_USER
+			toEmail = 'mapplop@gmail.com'
+			subject = '{}: {}, {} - {}'.format(request.POST['action'].upper(),
+				request.POST['city'], request.POST['state'], request.POST['venue'])
+			send_mail(subject, request.POST['comment'], fromEmail, [toEmail], fail_silently=True)
+			return HttpResponseRedirect('/map/modifyvenues/thanks')
+	context = {
+		"form": form,
+	}
+	return render(request, 'modify_venue.html', context)
 
 
 

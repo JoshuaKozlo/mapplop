@@ -228,3 +228,399 @@ html, body, .container-table {
 .trans {
   transform: translate(-25em);
 }
+
+/*MERGED*/
+
+.button-wrapper {
+  display: flex;
+  width: 400px;
+  margin: 25px auto;
+}
+
+.button-wrapper a {
+  margin: auto;
+}
+
+.venue-add {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 5px;
+  background-color: rgba(100, 0, 0, .1);
+  padding: 8px;
+  border-radius: 5px;
+}
+.venue-add img {
+  width: 20px;
+}
+
+.venue-add:hover {
+  background-color: rgba(100, 0, 0, .2);
+}
+
+.city-state {
+  margin: 0px;
+}
+
+.map {
+  padding: 0px;
+}
+
+.navbar {
+  margin-bottom: 5px;
+  z-index: 1;
+}
+
+.form-wrap {
+  display: flex
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.form-item {
+  align-self: center;
+  width: 100%;
+}
+.background {
+  background-color: #2d2d2d;
+  padding: 0px 10px 15px;
+  border-radius: 25px;
+}
+
+.form-modify form {
+  margin: auto;
+  
+}
+
+.form-modify button {
+  margin: auto;
+}
+
+.white-text, .form-item li {
+  color: #dedede;
+}
+
+.tkbutton-wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  margin: 25px 0px;
+}
+
+/* App Styles */
+.app-div {
+    border-radius: 100px;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+    height: 100px;
+    margin: 10px auto;
+    position: relative;
+    width: 350px;
+}
+
+.app-div img {
+    border-radius: 50%;
+    height: 100%;
+    left: 0px; top: 0;
+    position: absolute;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+}
+
+.app-div ul {
+  display:block;
+  font-size: 12px;
+  margin: 0px auto;
+  margin-left: 80px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 400px;
+}
+
+.app-div button {
+  display: none;
+  font-family: "Amatic SC";
+  font-size: 20px;
+  height: 50px;
+  position:absolute;
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 150px;
+}
+
+.app-div:hover {
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,1);
+}
+
+.app-div button:hover {
+    background-color: white;
+}
+
+.detail-img {
+    border-radius: 50%;
+    border: 2px solid #ddd;
+    padding: 10px;
+    width: 25%;
+    max-width: 300px;
+    min-width: 150px;
+    background-color: white;
+}
+
+.detail-header {
+    font-family: Lobster;
+    font-size: 50px;
+    color: #3d3d3d;
+}
+
+.point-group {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    margin-bottom: 15px;
+}
+
+.point-group h3 {
+    padding: 1px 10px;
+    font-size: 16px;
+}
+
+.fb-div {
+    margin-top: 100px;
+    display: flex;
+    width: 100%;
+}
+
+.social-group {
+    position: absolute;
+    list-style: none;
+    bottom: 0;
+    left: 0;
+    white-space: nowrap;
+}
+
+.social-group li {
+  width: 25px;
+  display: inline;
+}
+
+.social-group img {
+  width: 25px;
+  display: inline;
+  margin-right: 30px;
+}
+
+.fb-comments {
+    margin: 0 auto;
+}
+
+.banner-detail li {
+    display: inline-block;
+    padding: 10px;
+}
+
+.content-detail p {
+    font-size: 17px;
+    font-family: Tahoma;
+}
+
+.embed-container { 
+    position: relative; 
+    padding-bottom: 56.25%; 
+    height: 0; overflow: 
+    hidden; max-width: 100%; 
+    margin
+} 
+
+.embed-container iframe, 
+.embed-container object, 
+.embed-container embed { 
+    position: absolute; 
+    top: 0; left: 0; 
+    width: 100%; 
+    height: 100%; 
+}
+
+.panel p {
+    padding: 15px;
+}
+
+.flex-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.container-fixed {
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+svg {
+  display: block;
+  margin: auto;
+}
+
+#toggle-button {
+    position: fixed;
+    bottom: 5px;
+    right: 5px; 
+    display: none;
+}
+
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+    padding-left: 250px;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: #f8f8f8;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    box-shadow: 3px 0px 5px -1px rgba(0,0,0,0.5);
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 250px;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+}
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -250px;
+}
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #000;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #000;
+    background: #e1e1e1;
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+    font-family: "Amatic SC";
+    font-size: 30px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+    background: none;
+}
+
+@media(min-width:768px) {
+    
+    #wrapper {
+        padding-left: 250px;
+    }
+
+
+    #wrapper.toggled {
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+        width: 250px;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 0;
+    }
+
+    #page-content-wrapper {
+        /*padding-top: 20px;*/
+        position: relative;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+
+    #toggle-button {
+      display: inline;
+    }
+    .navbar {
+      display: none;
+    }
+
+    .app-div {
+        height: 150px;
+        width: 575px;
+    }
+
+    .app-div ul {
+        font-size: 14px;
+        margin-left: 150px;
+    }
+
+    .app-div button {
+        display: inline-block;
+    }
+
+    .detail-header {
+        font-size: 75px;
+    }
+
+    .detail-img {
+        padding: 15px;
+    }
+
+    .point-group h3 {
+        font-size: 20px;
+    }
+
+    .panel p {
+        padding: 15px 50px;
+    }
+}

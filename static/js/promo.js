@@ -53,7 +53,7 @@ getCity(city, state);
 
 function getCity(city, state) {
 	data = {'state' : state, 'city' : city}
-	$.getJSON('/getCity/', data)
+	$.getJSON('/map/getCity/', data)
     .done(function( json ) {
      g.selectAll('.city')
       .data(json.features)
@@ -69,7 +69,7 @@ function getCity(city, state) {
 
 function getVenues(city, state) {
   var data = {'scale' : 'city', 'state' : state, 'city' : city}
-  $.getJSON('/getVenues/', data)
+  $.getJSON('/map/getVenues/', data)
     .done(function( json ) {
       layoutUS(json);
     });

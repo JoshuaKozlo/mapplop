@@ -1,8 +1,78 @@
-.img-banner {
+/* App Styles */
+.app-div {
+    border-radius: 100px;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+    height: 100px;
+    margin: 10px auto;
+    position: relative;
+    width: 350px;
+}
+
+.app-div img {
+    border-radius: 50%;
+    height: 100%;
+    left: 0px; top: 0;
+    position: absolute;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+}
+
+.app-div ul {
+  display:block;
+  font-size: 12px;
+  margin: 0px auto;
+  margin-left: 80px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 400px;
+}
+
+.app-div button {
+  display: none;
+  font-family: "Amatic SC";
+  font-size: 20px;
+  height: 50px;
+  position:absolute;
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 150px;
+}
+
+.app-div:hover {
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,1);
+}
+
+.app-div button:hover {
+    background-color: white;
+}
+
+.detail-img {
     border-radius: 50%;
     border: 2px solid #ddd;
-    padding: 15px;
+    padding: 10px;
+    width: 25%;
     max-width: 300px;
+    min-width: 150px;
+    background-color: white;
+}
+
+.detail-header {
+    font-family: Lobster;
+    font-size: 50px;
+    color: #3d3d3d;
+}
+
+.point-group {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    margin-bottom: 15px;
+}
+
+.point-group h3 {
+    padding: 1px 10px;
+    font-size: 16px;
 }
 
 .fb-div {
@@ -15,24 +85,8 @@
     margin: 0 auto;
 }
 
-.biggen {
-    font-family: Lobster;
-    font-size: 80px;
-    color: #3d3d3d;
-}
-
 .banner-detail li {
     display: inline-block;
-    padding: 10px;
-}
-
-.point-group {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-}
-
-.point-group h3 {
     padding: 10px;
 }
 
@@ -59,29 +113,7 @@
 }
 
 .panel p {
-    padding: 15px 50px;
-}
-
-
-
-
-
-
-.tool-div {
-    height: 150px;
-    min-width: 575px;
-    position: relative;
-    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
-    border-radius: 100px;
-    margin: 10px auto;
-}
-
-.tool-div:hover {
-    box-shadow: 0px 0px 5px 0px rgba(0,0,0,1);
-}
-
-.tool-div button:hover {
-    background-color: white;
+    padding: 15px;
 }
 
 .flex-container {
@@ -90,44 +122,9 @@
     justify-content: space-around;
 }
 
-
 .container-fixed {
   margin: 0 auto;
   max-width: 100%;
-}
-
-/*.item-wrapper {
-    min-width: 585px;
-}*/
-
-.tool-div img {
-    border-radius: 50%;
-    height: 100%;
-    left: 0px; top: 0;
-    position: absolute;
-    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
-}
-
-.tool-div button {
-  height: 50px;
-  width: 150px;
-  position:absolute;
-  /* quick vertical align */
-  top: 50%;
-  transform: translateY(-50%);
-  right: 0px;
-  font-family: "Amatic SC";
-  font-size: 20px;
-}
-
-.tool-div ul {
-  width: 400px;
-  margin: 0px auto;
-  display:block;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  margin-left: 150px;
 }
 
 svg {
@@ -177,7 +174,6 @@ svg {
 #page-content-wrapper {
     width: 100%;
     position: absolute;
-    /*padding-top: 15px;*/
 }
 
 #wrapper.toggled #page-content-wrapper {
@@ -235,6 +231,7 @@ svg {
 }
 
 @media(min-width:768px) {
+    
     #wrapper {
         padding-left: 250px;
     }
@@ -267,5 +264,35 @@ svg {
     }
     .navbar {
     	display: none;
+    }
+
+    .app-div {
+        height: 150px;
+        width: 575px;
+    }
+
+    .app-div ul {
+        font-size: 14px;
+        margin-left: 150px;
+    }
+
+    .app-div button {
+        display: inline-block;
+    }
+
+    .detail-header {
+        font-size: 75px;
+    }
+
+    .detail-img {
+        padding: 15px;
+    }
+
+    .point-group h3 {
+        font-size: 20px;
+    }
+
+    .panel p {
+        padding: 15px 50px;
     }
 }

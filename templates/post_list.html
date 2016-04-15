@@ -7,18 +7,16 @@
 <div class="flex-container">
 	{% for obj in object_list %}
 	<a href="{{ obj.get_absolute_url }}">
-		<div class="item-wrapper">
-		<div class="tool-div">
+		<div class="app-div">
 			<img src="{{ obj.image.url }}">
-			<ul class="poptart">
+			<ul>
 				{% for point in obj.bullets.objects %}
 				<li>{{ point }}</li>
 				{% endfor %}
 			</ul>
 			<form action="{{ obj.link }}" target="_blank">
-				<button class="btn btn-default center-block">{{ obj.title }}</button>
+				<button class="btn btn-default">{{ obj.title }}</button>
 			</form>
-		</div>
 		</div>
 		</a>
 	{% endfor %}
@@ -36,6 +34,5 @@
 {% block script %}
 <script type="text/javascript">
 	$('.tool-div').remove('ul');
-	console.log('ok');
 </script>
 {% endblock script %}

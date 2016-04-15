@@ -3,14 +3,17 @@
 {% block content %}
 
 <!-- Map -->
-<div class= 'map center-block col-md-12'>
-</div>
-
+<div class= 'map center-block col-md-12'></div>
+<a href="/map/modifyvenues">
+	<div class="venue-add" title="Add/Remove/Change Venue">
+		<img src="{% static 'img/0010-office.svg' %}">
+	</div>
+</a>
 <!-- Venue Data -->
 <div class="data"></div>
 
 
 {% endblock content %}
 {% block script %}
-<script src="{% static 'js/map.js' %}"></script>
+<script src="{% static 'js/map.min.js' %}"></script>
 {% endblock script %}

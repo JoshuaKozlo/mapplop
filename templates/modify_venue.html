@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+<div class="col-xs-12 col-md-4 col-md-offset-4">
+<div class="background">
+<h1 class="white-text">Lets Keep this map sexy</h1>
+<p>
+
+<form method="post" class="form-modify"> {% csrf_token %}
+	<div class="form-wrap">
+	<div class="form- wrap">
+	{{ form.non_field_errors }}
+	<div class="form-item">
+		{% for radio in form.action %}
+		<label class="white-text">
+	    	{{ radio }}
+		</label>
+		{% endfor %}
+		{{ form.action.errors }}
+	</div>
+	</div>
+	<div class="form-item">
+    	{{ form.venue }}
+    	{{ form.venue.errors }}
+    </div>
+  	<div class="form-item">
+    	{{ form.city }}
+    	{{ form.city.errors }}
+  	</div>
+  	<div class="form-item">
+      	{{ form.state }}
+      	{{ form.state.errors }}
+  	</div>
+  	<div class="form-item">
+      	{{ form.comment }}
+      	{{ form.comments.errors }}
+  	</div>
+    <button type="submit" class="btn btn-default form-item">Send Request</button>
+    </div>
+</form>
+</div>
+</div>
+{% endblock content %}

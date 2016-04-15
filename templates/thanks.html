@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<img src="{% static 'img/thanks.png' %}" style="width: 70%">
+<h1 class="detail-header">Thanks!</h1>
+<div class="tkbutton-wrapper">
+	<a href="/map/modifyvenues/">
+		<button class="btn btn-default" type="submit">Do Another?</button>
+	</a>
+	
+</div>
+
+
+{% endblock content %}

@@ -1,80 +1,23 @@
+{% extends "base.html" %}
 {% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en" class="full" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
-	<head>
-		<meta charset="utf-8">
-    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    	<meta property="og:image" content="{% static 'img/facebookshare.png' %}"/>
-    	<title>Mapplop | Music Venues!</title>
-    	<link rel="shortcut icon" href="{% static 'img/logo.ico' %}">
-		<!-- Styles -->
-    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    	<link rel="stylesheet" href="{% static 'css/main.min.css' %}">
-    	<!-- Fonts -->
-    	<link href='https://fonts.googleapis.com/css?family=Josefin+Sans|Questrial|Amatic+SC' rel='stylesheet' type='text/css'>
-    	</style>
-	</head>
-	<body>
-		<div id="fb-root"></div>
-		<!-- Navigation Bar -->
-		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-			<!-- Navbar Center Piece -->
-			<div class="navbar-center navbar-brand">
-				<a href="#top" class="navbar-brand" id="nav-headline">mapplop</a>
-			</div>
-			<!-- Navbar Dropdown -->
-			<ul class="nav navbar-nav">
-     			<li class="dropdown">
-		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">home <span class="caret"></span></a>
-		          <ul class="dropdown-menu">
-		            <li><a href="/themap">the map</a></li>
-		            <li role="separator" class="divider"></li>
-		            <li><a href="/addvenue">Venue add request</a></li>
-		            <li><a href="/removevenue">Venue change/remove request</a></li>
-		            <li role="separator" class="divider"></li>
-		            <li class="dropdown-header">Follow Us On...</li>
-		            <li><a href="https://www.facebook.com/mapplop/">Facebook</a></li>
-		            <li class="follow">
-			            <div class="fb-like" data-href="https://www.facebook.com/mapplop/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
-		            </li>
-		            <li><a href="https://twitter.com/mapplop">Twitter</a></li>
-		            <li class="follow">
-		            	<a class="twitter-follow-button" href="https://twitter.com/mapplop"
-		            	data-show-screen-name=false>@mapplop</a>
-		            </li>
-		            <li><a href="https://www.youtube.com/channel/UCit7jhRfrhsn45B2Yx9Tv2A">Youtube</a></li>
-		            <li class='follow'>
-		            	<div class="g-ytsubscribe" data-channelid="UCit7jhRfrhsn45B2Yx9Tv2A" data-layout="default" data-count="default"></div>
-		            </li>
-		          </ul>
-		        </li>
-		      </ul>
-		</nav>
-		<div class="container container-table">
-			<div class="row vertical-center-row">
-				<div class="text-center col-md-4 col-md-offset-4 home">
-					<h1 class="big-text">VISUALLY PLAN YOUR NEXT TOUR OR SHOW</h1>
-					<h2>"helping muscians venture where they have never gone before"</h2>
-					<a href="/themap"><button class="btn btn-primary" type="submit">-TO THE MAP-</button></a>
-				</div>
-			</div>
-		</div>
-		<!-- Plugins -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-		<!-- For Social Followings -->
-		<script src="{% static 'js/social.js' %}"></script>
-		<script src="https://apis.google.com/js/platform.js"></script>
-		<!-- Analytics -->
-		<script>
-		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-		  ga('create', 'UA-65264150-1', 'auto');
-		  ga('send', 'pageview');
-		</script>
-	</body>
-</html>
+
+
+{% block content %}
+<div class="row">
+<div class="col-xs-12">
+	<h1 class="detail-header">Mapplop</h1>
+</div>
+
+<div>	
+<img class="item" src="{% static 'img/cover.png' %}" style='width: 40%;'>
+<h1>Become self suficient as a musician</h1>
+<div class="button-wrapper">
+	<a href="/map">
+	<button class="btn btn-default">To the Map</button>
+	</a>
+	<a href="/apps">
+		<button class="btn btn-default">To the Apps</button>
+	</a>
+</div>
+{% endblock content %}

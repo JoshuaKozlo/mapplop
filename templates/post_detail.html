@@ -7,16 +7,16 @@
 {% block content %}
 
 {% if instance.image %}
-<img src="{{ instance.image.url }}" class="img-responsive img-banner">
+<img src="{{ instance.image.url }}" class="detail-img">
 {% endif %}
-<h1 class="biggen">{{ title }}</h1>
+<h1 class="detail-header">{{ title }}</h1>
 <div class="point-group">
 	{% for point in instance.bullets.objects %}
 	<h3><small>&#0149</small> {{ point }} <small>&#0149</small></h3>
 	{% endfor %}
 </div>
 
-<div class="col-sm-8 col-sm-offset-2 content-detail">
+<div class="col-md-8 col-md-offset-2 content-detail">
 	{% if instance.video %}
 	<div class="panel panel-default">
 		<a class="btn" data-toggle="collapse" data-target="#viewdetails3">
@@ -49,20 +49,17 @@
 	</div>
 	<div class="point-group">
 		{% if instance.android %}
-		<h4><small>-</small> Android <small>-</small></h4>
+		<h3><small>-</small> Android <small>-</small></h3>
 		{% endif %}
 		{% if instance.ios %}
-		<h4><small>-</small> iOS <small>-</small></h4>
+		<h3><small>-</small> iOS <small>-</small></h3>
 		{% endif %}
 		{% if instance.desktopapp %}
-		<h4><small>-</small> Desktop App <small>-</small></h4>
+		<h3><small>-</small> Desktop App <small>-</small></h3>
 		{% endif %}
 		{% if instance.webapp %}
-		<h4><small>-</small> Web App <small>-</small></h4>
+		<h3><small>-</small> Web App <small>-</small></h3>
 		{% endif %}
-	</div>
-	<div class="fb-div">
-		<div class="fb-comments" data-href="{{ request.build_absolute_uri }}" data-numposts="5"></div>
 	</div>
 </div>
 {% endblock content %}

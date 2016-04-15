@@ -16,9 +16,11 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls import include, url
 from django.contrib import admin
+from venues.views import home
 
 urlpatterns = [
     url(r'^mapplopsuperadmin/', admin.site.urls),
-    url(r'^', include('venues.urls')),
-    url(r'^posts/', include('posts.urls', namespace='posts')),
+    url(r'^$', home),
+    url(r'^map/', include('venues.urls')),
+    url(r'^apps/', include('posts.urls', namespace='posts')),
 ] 
