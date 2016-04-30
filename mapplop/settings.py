@@ -104,7 +104,6 @@ DATABASES = {
 }
 
 
-
 SERIALIZATION_MODULES = {
     'geojson': 'django.contrib.gis.serializers.geojson',
 }

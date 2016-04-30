@@ -345,7 +345,7 @@ html, body, .container-table {
   right: 0px;
   top: 50%;
   transform: translateY(-50%);
-  width: 150px;
+  width: 120px;
 }
 
 .app-div:hover {
@@ -495,6 +495,12 @@ svg {
     box-shadow: 3px 0px 5px -1px rgba(0,0,0,0.5);
 }
 
+#sidebar-wrapper-div {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
 #wrapper.toggled #sidebar-wrapper {
     width: 250px;
 }
@@ -595,13 +601,13 @@ svg {
     }
 
     .app-div {
-        height: 150px;
-        width: 575px;
+        height: 140px;
+        width: 500px;
     }
 
     .app-div ul {
         font-size: 14px;
-        margin-left: 150px;
+        margin-left: 125px;
     }
 
     .app-div button {
